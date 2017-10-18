@@ -9,23 +9,23 @@
 Product.create(
   name: 'Razr Mouse',
   description: "best ma'facka in town",
-  price: 49.99
+  price: 4999
 )
 
 Product.create(
   name: 'Adult diapers',
   description: "When you see dat bear running at you and you shit your pants",
-  price: 30.25
+  price: 3025
 )
 
 Product.create(
   name: 'Colgate Whitening Strips',
   description: 'get noticed when the lights go out with your smile',
-  price: 1.99
+  price: 199
 )
 
 Product.create(
   name: "Porcelane Coffee cup",
   description: "Tired of burning my fingerprint off and not able to unlock my i-phone",
-  price: 7.99
+  price: 799
 )
