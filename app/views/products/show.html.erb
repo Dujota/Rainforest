@@ -1,0 +1,29 @@
+<h1>This is our Shcam-azon Product</h1>
+
+
+ <!-- Our product is displayed here -->
+<section class="product">
+<p>
+<%= @product.name %>
+</p>
+
+<p>
+<%= @product.description %>
+</p>
+
+<p>
+<%= @product.price %>
+</p>
+
+<%= link_to('Edit', edit_product_path(@product.id)) %> | <%= link_to('Delete', product_path(@product.id)) %>
+
+</section>
+
+
+
+
+<!-- Our review start here  -->
+<aside class="reviews">
+  -------------------------<br>
+ this is the review block
+</aside>
