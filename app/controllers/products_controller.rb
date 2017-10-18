@@ -1,12 +1,13 @@
 class ProductsController < ApplicationController
+  before_action :find_product, only: [:show, :edit, :update]
+  before_action :new_product, only: [:new, :create]
 
   def index
     @products = Product.all
   end
 
   def create
-    #code
-    @product = Product.new
+    #see before action
     @product.name = params[:product][:name]
     @product.description = params[:product][:description]
     @product.price = params[:product][:price]
@@ -16,28 +17,43 @@ class ProductsController < ApplicationController
     else
       render 'new'
     end
-
-
   end
 
   def new
-    @product = Product.new
+    #see before action
   end
 
   def edit
-    #code
+    # see before action
   end
 
   def show
-    @product = Product.find(params[:id])
+    #see before action
   end
 
   def update
-    #code
+    @product.name = params[:product][:name]
+    @product.description = params[:product][:description]
+    @product.price = params[:product][:price]
+
+    if @product.save
+      redirect_to product_path(@product.id)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
     #code
+  end
+
+  # Keeping the Code DRY by defining the loaction of each product in a mehtod
+  def find_product
+    @product = Product.find(params[:id])
+  end
+
+  def new_product
+    @product = Product.new
   end
 
 end
