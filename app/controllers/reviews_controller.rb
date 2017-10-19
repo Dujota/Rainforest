@@ -1,9 +1,13 @@
 class ReviewsController < ApplicationController
+  before_action :find_product, only: [:edit, :update, :create]
+
+  before_action :find_review, only: [:edit, :update, :destroy]
+
   def create
+    # BEFORE ACTION PRODUCT FIND
     @review = Review.new
     @review.comment = params[:review][:comment]
     @review.product_id = params[:product_id]
-    @product = Product.find(params[:product_id])
     @reviews = @product.reviews
 
     if @review.save
@@ -15,13 +19,11 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = Review.find(params[:id])
-    @product = Product.find(params[:product_id])
+    # before action!
   end
 
   def update
-    @product = Product.find(params[:product_id])
-    @review = Review.find(params[:id])
+    # BEFORE ACTIONS
     @review.comment = params[:review][:comment]
     if @review.save
       flash[:notice] = "You have successfully updated the review."
@@ -35,12 +37,12 @@ class ReviewsController < ApplicationController
   end
 
 
-# BEFORE ACTIONS!!! 
+# BEFORE ACTIONS!!!
   def find_product
-    #code
+    @product = Product.find(params[:product_id])
   end
 
   def find_review
-    #code
+    @review = Review.find(params[:id])
   end
 end
