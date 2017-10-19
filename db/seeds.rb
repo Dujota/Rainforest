@@ -7,29 +7,60 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # this will remvoe any older products that were previously loaded
-Product.destroy_all
 
-#the ! in .create! will put an error message
-Product.create!(
-  name: 'Razr Mouse',
-  description: "best ma'facka in town",
-  price: 4999
+
+# PREVIOUSLY LOADED SEED
+
+# Product.destroy_all
+#
+# #the ! in .create! will put an error message
+# Product.create!(
+#   name: 'Razr Mouse',
+#   description: "best ma'facka in town",
+#   price: 4999
+# )
+#
+# Product.create!(
+#   name: 'Adult diapers',
+#   description: "When you see dat bear running at you and you shit your pants",
+#   price: 3025
+# )
+#
+# Product.create!(
+#   name: 'Colgate Whitening Strips',
+#   description: 'get noticed when the lights go out with your smile',
+#   price: 199
+# )
+#
+# Product.create!(
+#   name: "Porcelane Coffee cup",
+#   description: "Tired of burning my fingerprint off and not able to unlock my i-phone",
+#   price: 799
+# )
+
+Review.destroy_all
+
+Review.create!(
+  comment: "Takes a heavy load, A++++++++",
+  product_id: 6
 )
 
-Product.create!(
-  name: 'Adult diapers',
-  description: "When you see dat bear running at you and you shit your pants",
-  price: 3025
+Review.create!(
+  comment: "got the wrong side and had a mud slide",
+  product_id: 6
 )
 
-Product.create!(
-  name: 'Colgate Whitening Strips',
-  description: 'get noticed when the lights go out with your smile',
-  price: 199
+Review.create!(
+  comment: "False advertising, i tried to shave with this and it stopped working",
+  product_id: 5
 )
 
-Product.create!(
-  name: "Porcelane Coffee cup",
-  description: "Tired of burning my fingerprint off and not able to unlock my i-phone",
-  price: 799
+Review.create!(
+  comment: "Works great, but blinded myself at night in the bathroom, now i have 30 stitches to show for it",
+  product_id: 7
+)
+
+Review.create!(
+  comment: "I can finally use my phone !!!! A+++B----C-",
+  product_id: 8
 )
