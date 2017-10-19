@@ -20,8 +20,27 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    @product = Product.find(params[:product_id])
+    @review = Review.find(params[:id])
+    @review.comment = params[:review][:comment]
+    if @review.save
+      flash[:notice] = "You have successfully updated the review."
+      redirect_to product_path(@product.id)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+  end
+
+
+# BEFORE ACTIONS!!! 
+  def find_product
+    #code
+  end
+
+  def find_review
+    #code
   end
 end
