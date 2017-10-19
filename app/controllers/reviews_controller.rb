@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :find_product, only: [:edit, :update, :create]
+  before_action :find_product, only: [:edit, :update, :create, :destroy]
 
   before_action :find_review, only: [:edit, :update, :destroy]
 
@@ -34,6 +34,9 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @review.destroy
+      flash[:alert] = "You have successfully deleted this review."
+    redirect_to product_path(@product.id)
   end
 
 
