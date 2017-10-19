@@ -24,5 +24,15 @@
 <!-- Our review start here  -->
 <aside class="reviews">
   -------------------------<br>
- this is the review block
+
+  <h3><%= @product.name %> has <%= @reviews.length %> Reviews: </h3>
+
+ <% @reviews.each do |review| %>
+
+  <ul>
+    <li> <%= review.comment%> <br> Created at: <%= review.created_at %> </li>
+  </ul>
+
+ <% end %>
+
 </aside>

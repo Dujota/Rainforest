@@ -29,6 +29,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @reviews = @product.reviews
     #see before action
   end
 
